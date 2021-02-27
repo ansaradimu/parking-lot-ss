@@ -22,12 +22,20 @@ class ParkingSystem:
 			heapq.heappush(self.available_slot_list,slot)
 		
 	def get_cars_by_driver_age(self,driver_age):
-		pass
+		print ("Cars by age::",self.age_car_map[driver_age])
 	
 	def get_slot_id_by_regno(self,reg_num):
+		slot_det = None
+		for slot, car in self.slot_car_map.items():
+			if car.reg_num == reg_num:
+				slot_det=slot
+				break
+				
+		print ("Slot::",slot_det)
 		pass
 		
 	def get_slots_by_driver_age(self,driver_age):
+		print ("Slots by age::",self.age_slot_map[driver_age])
 		pass
 		
 	def park_a_car(self,car):
@@ -57,9 +65,9 @@ class ParkingSystem:
 			print ("No")
 			
 		
-c1 = Car("1",25)
-c2 = Car("2",26)
-c3 = Car("3",27)
+c1 = Car("3",25)
+c2 = Car("2",25)
+c3 = Car("1",26)
 
 p1 = ParkingSystem()
 p1.create_parking_lots(3)
@@ -67,9 +75,8 @@ p1.create_parking_lots(3)
 p1.park_a_car(c1)
 p1.park_a_car(c2)
 p1.park_a_car(c3)
-p1.unpark_a_park(2)
-p1.unpark_a_park(3)
-p1.park_a_car(c3)
+
+p1.get_slot_id_by_regno("3")
 #p1.unpark_a_park(c2)
 
 		
