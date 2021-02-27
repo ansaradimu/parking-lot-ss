@@ -4,10 +4,12 @@ from parking import Car, ParkingSystem
 parking_sys = ParkingSystem()
 
 def input_parser(command):
-	#print (command)
+	'''
+		Takes the commands one by one and parse it accordingly
+	'''
+	
 	if len(command.strip()) > 0:
 		command_split = command.split()
-		#print(command_split)
 		
 		main_command = command_split[0].strip().lower()
 		
@@ -34,7 +36,7 @@ def input_parser(command):
 			print ("Wrong command found, check the command file and retry..")
 
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 2: # Command file missing
 	print "Error in input format. Eg: python parking_input_parser.py <your_command_file.txt>"
 else:
 	command_file = sys.argv[-1]
